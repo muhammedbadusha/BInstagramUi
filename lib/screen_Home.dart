@@ -1,6 +1,6 @@
 import 'package:b_instagram_ui/Widgets/costomColors.dart';
 import 'package:flutter/material.dart';
-bool _iconBool=false;
+
 class ScreenHome extends StatefulWidget {
   const ScreenHome({Key? key}) : super(key: key);
 
@@ -8,42 +8,48 @@ class ScreenHome extends StatefulWidget {
   State<ScreenHome> createState() => _ScreenHomeState();
 }
 
-
-
 class _ScreenHomeState extends State<ScreenHome> {
 
   @override
   Widget build(BuildContext context) {
-    return
-       Scaffold(
-        appBar: AppBar(
-          title: Text('Dark mode and Light mode'),
-        ),
-        body: Center(
-          child: Text('hello'),
-        )
-      );
+    onItemSelected(int index){
+      _selectedIndex.value=index;
+    }
+    return ValueListenableBuilder(
+      valueListenable: _selectedIndex,
+      builder: (context,int newValue,_) {
+        return Scaffold(
+          appBar: AppBar(
+            title: Text('Instagram'),
+          ),
+
+          body: Center(
+            child: Text('hello'),
+          ),
+          bottomNavigationBar:  Container(
+            alignment: Alignment.bottomCenter,
+            height: 55,
+            color: Colors.red,
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              currentIndex: newValue,
+              onTap: onItemSelected,
+              items: [
+                BottomNavigationBarItem(icon: Icon(Icons.home_outlined,),label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.home_outlined),label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.home_outlined),label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.home_outlined),label: ""),
+                BottomNavigationBarItem(icon: Icon(Icons.home_outlined),label: ""),
+              ],
+            ),
+          ),
+        );
+      }
+    );
 
   }
-}
-// class Secondtest extends StatefulWidget {
-//   const Secondtest({Key? key}) : super(key: key);
-//
-//   @override
-//   State<Secondtest> createState() => _SecondtestState();
-// }
-//
-// class _SecondtestState extends State<Secondtest> {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Scaffold(
-//       appBar: AppBar(
-//         title: Text('this is second Page'),
-//       ),
-//       body: Container(
-//         color: cRed,
-//       ),
-//     );
-//   }
-// }
+  //variables are below.
+final ValueNotifier<int> _selectedIndex=ValueNotifier(0);
+//functions are below.
 
+}

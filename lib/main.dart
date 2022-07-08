@@ -1,4 +1,4 @@
-import 'package:b_instagram_ui/Widgets/costomColors.dart';
+import 'package:b_instagram_ui/Widgets/dark_light_theme.dart';
 import 'package:b_instagram_ui/screen_Home.dart';
 import 'package:flutter/material.dart';
 
@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       themeMode:ThemeMode.system,
       theme: ThemeClass.lightTheme,
       darkTheme: ThemeClass.darkTheme,
-      home: ScreenHome(),
+      home: const ScreenHome(),
     );
   }
 }
