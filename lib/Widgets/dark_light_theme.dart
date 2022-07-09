@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+final dColor=Colors.red;
+ var mColor;
 class ThemeClass{
 
   static ThemeData lightTheme = ThemeData(
@@ -8,8 +9,8 @@ class ThemeClass{
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.red,
       ),
-    bottomNavigationBarTheme: const BottomNavigationBarThemeData(
-        selectedIconTheme: IconThemeData(color: Colors.green),
+    bottomNavigationBarTheme:  BottomNavigationBarThemeData(
+        selectedIconTheme: IconThemeData(color: dColor),
     ),
   );
 
