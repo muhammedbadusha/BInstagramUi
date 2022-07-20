@@ -1,5 +1,7 @@
-import 'package:b_instagram_ui/Widgets/dark_light_theme.dart';
-import 'package:b_instagram_ui/screen_Home.dart';
+import 'package:b_instagram_ui/responsive/mobil_screen_layout.dart';
+import 'package:b_instagram_ui/responsive/responsive_layout_screen.dart';
+import 'package:b_instagram_ui/responsive/web_screen_layout.dart';
+import 'package:b_instagram_ui/utils/colors.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,10 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Theme Demo',
       debugShowCheckedModeBanner: false,
-      themeMode:ThemeMode.system,
-      theme: ThemeClass.lightTheme,
-      darkTheme: ThemeClass.darkTheme,
-      home: const ScreenHome(),
+    theme: ThemeData.dark().copyWith(
+      scaffoldBackgroundColor: mobileBackgroundColor,
+    ),
+      home: ResponsiveLayout(webScreenLayout: const WebScreenLayout(), mobileScreenLayout: const MobileScreenLayout()),
     );
   }
 }
